@@ -129,10 +129,9 @@ NROW(Ls) / (NROW(Ws) + NROW(Ls))
 
 sum(Ws) + sum(Ls)
 
+
+
 tradeStats(port.st)
-
-
-
 # undebug(tradeStats)
 tstats <- tradeStats(Portfolios = port.st,Symbols = "TW2330")
 
@@ -142,7 +141,22 @@ tstats$Num.Trades
 tstats$Percent.Positive
 tstats$Percent.Negative
 tstats$Avg.WinLoss.Ratio
+tstats$Gross.Profits  
+tstats$Gross.Losses   
+tstats$Gross.Profits+tstats$Gross.Losses   
+
+
+######################################
+
 
 View(t(tstats))
 
-getPortfolio(qs.strategy)
+getPortfolio(port.st)
+
+# hack for new quantmod graphics, remove later
+themelist<-chart_theme()
+themelist$col$up.col<-'lightgreen'
+themelist$col$dn.col<-'pink'  
+
+
+chart.Posn(Portfolio=port.st)
