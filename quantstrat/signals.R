@@ -4,6 +4,8 @@ TW2330 = getSymbols('2330.TW', auto.assign = F)
 chartSeries(tail(TW2330,300),TA = NULL)
 addBBands()
 
+BBandsDN = function(mktdata,n) BBands(mktdata)$dn
+
 TW2330$BBandsDN = BBandsDN(HLC(TW2330),n=20)
 TW2330$SMA = SMA(Cl(TW2330),n=20)
 
