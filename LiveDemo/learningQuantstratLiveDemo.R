@@ -1,3 +1,4 @@
+
 library(quantstrat)
 initDate <- '1997-12-31'
 startDate <- '1998-01-01'
@@ -65,6 +66,7 @@ ls(envir=FinancialInstrument:::.instrument)
 initEq <- 1e6
 
 port.st <- "FundAlpha" 
+rm.strat(port.st)
 
 args(initPortf)
 initPortf(port.st,'TW2330', initDate=initDate)
@@ -99,7 +101,7 @@ tradeStats(port.st)
 
 
 # undebug(tradeStats)
-tstats <- tradeStats(qs.strategy,"TW2330")
+tstats <- tradeStats(port.st,"TW2330")
 
 str(tstats)
 tstats$Num.Txns
@@ -110,4 +112,4 @@ tstats$Avg.WinLoss.Ratio
 
 View(t(tstats))
 
-getPortfolio(qs.strategy)
+chart.Posn(Portfolio=port.st)

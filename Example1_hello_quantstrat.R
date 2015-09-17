@@ -47,7 +47,7 @@ initPortf(port.st, symbols=symbol, initDate=initDate)
 initAcct(port.st, portfolios=port.st, initDate=initDate)
 initOrders(portfolio=port.st, initDate=initDate)  
 
-
+getPortfolio(port.st)
 print("setup completed")
 
 
@@ -72,5 +72,7 @@ themelist$col$dn.col<-'pink'
 
 chart.Posn(Portfolio=port.st,Symbol=symbol,theme=themelist,log=TRUE)
 
-getOrderBook(port.st)
-
+# getOrderBook(port.st)
+# 
+# test = tradeStats(port.st)
+# test$Avg.WinLoss.Ratio
