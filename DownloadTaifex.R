@@ -4,6 +4,7 @@ TAIFEX_FC_TbyT_ZIPs_URL = "http://www.taifex.com.tw/eng/eng3/eng3_1_5.asp"
 library(httr)
 library(rvest)
 library(stringr)
+library(xts)
 
 res = GET(TAIFEX_F_TbyT_ZIPs_URL)
 downloadUrls = html(res) %>% html_nodes(".table_c input") %>% html_attr("onclick")
